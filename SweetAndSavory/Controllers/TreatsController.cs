@@ -39,16 +39,12 @@ namespace SweetAndSavory.Controllers
     [HttpPost]
     public ActionResult Create(Treat treat)
     {
-      if (_db.Treats.Where(dbTreat => dbTreat.TreatName == treat.TreatName && dbTreat.Price == treat.Price).Any())
-      {
-        return RedirectToAction("Index");
-      }
-      else 
+      if (_db.Treats.Where(dbTreat => dbTreat.TreatName == treat.TreatName && dbTreat.Price == treat.Price).Any() == false)
       {
         _db.Treats.Add(treat);
         _db.SaveChanges();
-        return RedirectToAction("Index");
       }
+      return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
@@ -90,8 +86,15 @@ namespace SweetAndSavory.Controllers
     {
       if (FlavorId != 0)
       {
-        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
-        _db.SaveChanges();
+        if (_db.FlavorTreat.Where(dbFlavorTreat => dbFlavorTreat.FlavorId == FlavorId && dbFlavorTreat.TreatId == treat.TreatId).Any())
+        {
+          return RedirectToAction("Details", new{ id = treat.TreatId});
+        }
+        else
+        {
+          _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+          _db.SaveChanges();
+        }
       }
       return RedirectToAction("Details", new{ id = treat.TreatId});
     }
