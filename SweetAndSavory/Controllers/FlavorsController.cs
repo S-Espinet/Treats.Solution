@@ -39,16 +39,12 @@ namespace SweetAndSavory.Controllers
     [HttpPost]
     public ActionResult Create(Flavor flavor)
     {
-      if (_db.Flavors.Where(dbFlavor => dbFlavor.FlavorDescription == flavor.FlavorDescription).Any())
-      {
-        return RedirectToAction("Index");
-      }
-      else
+      if (_db.Flavors.Where(dbFlavor => dbFlavor.FlavorDescription == flavor.FlavorDescription).Any() == false)
       {
         _db.Flavors.Add(flavor);
         _db.SaveChanges();
-        return RedirectToAction("Index");
       }
+      return RedirectToAction("Index");
     }
 
     public ActionResult Details (int id)
