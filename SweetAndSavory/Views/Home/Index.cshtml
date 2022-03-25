@@ -6,8 +6,9 @@
   <h1>Pierre's Sweet and Savory Treats</h1>
 </div>
 
+@using SweetAndSavory.ViewModels;
 @using SweetAndSavory.Models;
-@model SweetAndSavory.Models.IndexDisplay
+@model IndexDisplayViewModel
 
 <h4>Flavors</h4>
 @foreach(Flavor flavor in Model.Flavors)
