@@ -42,7 +42,7 @@ namespace SweetAndSavory
       
       app.UseRouting();
 
-      app.UserAuthorization();
+      app.UseAuthorization();
 
       app.UseEndpoints(routes =>
       {
