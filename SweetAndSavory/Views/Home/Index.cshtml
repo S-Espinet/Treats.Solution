@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="jumbotron">
+  <h1>Pierre's Sweet and Savory Treats</h1>
+</div>
+
+@using SweetAndSavory.Models;
+@model SweetAndSavory.Models.IndexDisplay
+
+<h4>Flavors</h4>
+@foreach(Flavor flavor in Model.Flavors)
+{
+  <ul>
+    <li>Name: @Html.ActionLink($"{flavor.FlavorDescription}:", "Details", "Treats", new { id = flavor.FlavorId })</li>
+  </ul>
+}
+
+<h4>Machines</h4>
+@foreach(Treat treat in Model.Treats)
+{
+  <ul>
+    <li>Name: @Html.ActionLink($"{treat.TreatName}:", "Details", "Treats", new { id = treat.TreatId })</li>
+  </ul>
+}
+
+<button class="btn-warning">@Html.ActionLink("See All Flavors", "Index", "Flavors")</button>
+<button class="btn-warning">@Html.ActionLink("See All Treats", "Index", "Treats")</button>
+<button class="btn-warning">@Html.ActionLink("Create an Account", "Index", "Account")</button>
