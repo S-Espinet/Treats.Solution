@@ -41,7 +41,7 @@ namespace SweetAndSavory.Controllers
     {
       if (_db.Treats.Where(dbTreat => dbTreat.TreatName == treat.TreatName && dbTreat.Price == treat.Price).Any())
       {
-        return View("Index");
+        return RedirectToAction("Index");
       }
       else 
       {
