@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace TemplateDatabaseBasics.Controllers
+namespace Treats.Controllers
 {
     public class HomeController : Controller
     {

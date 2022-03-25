@@ -1,7 +1,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace TemplateDatabaseBasics
+namespace Treats
 {
   public class Program
   {
