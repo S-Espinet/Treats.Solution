@@ -88,5 +88,32 @@ namespace SweetAndSavory.Controllers
       }
       return RedirectToAction("Details", new{ id = flavor.FlavorId});
     }
+
+    [Authorize]
+    [HttpPost]
+    public ActionResult DeleteAuthor(int joinId)
+    {
+      var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreat.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Details", "Flavors", new {id = joinEntry.FlavorId});
+    }
+
+    [Authorize]
+    public ActionResult Delete(int id)
+    {
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
+    }
+
+    [Authorize]
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      _db.Flavors.Remove(thisFlavor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
