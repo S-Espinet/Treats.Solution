@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetAndSavory.Models.Flavor
+
+<h2>Edit</h2>
+
+<h4>Edit This Flavor: @Html.DisplayFor(model => model.FlavorDescription)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+
+  @Html.LabelFor(model => model.FlavorDescription)
+  @Html.EditorFor(model => model.FlavorDescription, new { @class = "form-control required"})
+  <br>
+  <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("See All Flavors", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
