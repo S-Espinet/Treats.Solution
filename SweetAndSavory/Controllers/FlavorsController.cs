@@ -28,5 +28,20 @@ namespace SweetAndSavory.Controllers
       ViewBag.PageTitle = "All Flavors";
       return View(_db.Flavors.ToList());
     }
+
+    [Authorize]
+    public ActionResult Create()
+    {
+      return View();
+    }
+
+    [Authorize]
+    [HttpPost]
+    public ActionResult Create(Flavor flavor)
+    {
+      _db.Flavors.Add(flavor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
