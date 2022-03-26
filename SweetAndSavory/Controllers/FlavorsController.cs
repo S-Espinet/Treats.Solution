@@ -84,7 +84,9 @@ namespace SweetAndSavory.Controllers
     [HttpPost]
     public ActionResult AddTreat (Flavor flavor, int TreatId)
     {
-      if (TreatId != 0)
+      if (TreatId != 0 && _db.FlavorTreat
+        .Where(dbFlavorTreat => dbFlavorTreat.TreatId == TreatId && dbFlavorTreat.FlavorId == flavor.FlavorId)
+        .Any())
       {
         _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });
         _db.SaveChanges();

@@ -84,17 +84,12 @@ namespace SweetAndSavory.Controllers
     [HttpPost]
     public ActionResult AddFlavor (Treat treat, int FlavorId)
     {
-      if (FlavorId != 0)
+      if (FlavorId != 0 && _db.FlavorTreat
+          .Where(dbFlavorTreat => dbFlavorTreat.FlavorId == FlavorId && dbFlavorTreat.TreatId == treat.TreatId)
+          .Any() == false)
       {
-        if (_db.FlavorTreat.Where(dbFlavorTreat => dbFlavorTreat.FlavorId == FlavorId && dbFlavorTreat.TreatId == treat.TreatId).Any())
-        {
-          return RedirectToAction("Details", new{ id = treat.TreatId});
-        }
-        else
-        {
-          _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
-          _db.SaveChanges();
-        }
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+        _db.SaveChanges();
       }
       return RedirectToAction("Details", new{ id = treat.TreatId});
     }
