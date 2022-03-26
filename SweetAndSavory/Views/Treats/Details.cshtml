@@ -6,15 +6,15 @@
 
 <h2>Treat Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.TreatName)</h3>
-<h3>@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price)</h3>
+<h4>@Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.TreatName)</h4>
+<h4>@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price)</h4>
 @if (Model.JoinEntities.Count == 0)
 {
   <p>No flavors currently available for this treat.</p>
 } 
 else
 {
-  <h5>Flavors this treat is available in: </h5>
+  <h6>Flavors this treat is available in: </h6>
     <ul>
       @foreach(var join in Model.JoinEntities)
       {

@@ -1,0 +1,13 @@
+body {
+  background-color: mistyrose;
+}
+
+.jumbotron {
+  background-color: cornflowerblue;
+  text-align: center;
+  font-style: italic;
+}
+
+h2 {
+  color: mediumorchid;
+}
