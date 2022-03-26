@@ -37,6 +37,7 @@ _This is a C# application that uses .NET and Entity to work with a SQL database 
 	* _dotnet add package Microsoft.EntityFrameworkCore.Proxies -v 5.0.0_
   * _dotnet tool install --global dotnet-ef --version 5.0.1_
   * _dotnet add package Microsoft.EntityFrameworkCore.Design -v 5.0.0_
+  * _dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore -v 5.0.0_
 * _create appsettings.json file; it should appear as follows:_   
 
 ~~~    
@@ -49,8 +50,8 @@ _This is a C# application that uses .NET and Entity to work with a SQL database 
 
 * _run "dotnet ef database update" to create your database_
 * _your appsettings.json file and any auto-generated files other than the Migrations directory (obj, bin, .vscode) should be stored in your .gitignore file_
-* _run "dotnet run" in terminal from Factory directory_
-* _respond to prompt in browser to add contents to your database_  
+* _run "dotnet run" in terminal from SweetAndSavory directory_
+* _respond to prompts in browser to add contents to your database_  
 
 ## Known Bugs
 
