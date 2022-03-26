@@ -14,6 +14,8 @@
 * _Razor view engine_
 * _Bootstrap_
 * _Microsoft.AspNetCore.Identity_
+* _Bootstrap_
+* _CSS_
 
 ## Description
 
