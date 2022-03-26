@@ -5,6 +5,8 @@
 @model SweetAndSavory.Models.Treat
 
 <h4>Add a New Treat</h4>
+
+<h2>Add a new treat to the menu:</h2>
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.TreatName)
@@ -12,6 +14,5 @@
   <br />
   @Html.LabelFor(model => model.Price)
   @Html.TextBoxFor(model => model.Price, new { required = "required"})
-  <input type="submit" value="Add New Treat" class="btn btn-default" />
+  <input type="submit" value="Add New Treat" class="btn btn-light" />
 }
-<p>@Html.ActionLink("See All Treats", "Index")</p>

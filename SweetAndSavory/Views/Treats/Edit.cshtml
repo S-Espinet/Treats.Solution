@@ -4,7 +4,9 @@
 
 @model SweetAndSavory.Models.Treat
 
-<h2>Edit</h2>
+<div>
+  <h2>Edit</h2>
+</div>
 
 <h4>Edit this treat's details: @Html.DisplayFor(model => model.TreatName)</h4>
 
@@ -17,7 +19,5 @@
   @Html.LabelFor(model => model.Price)
   @Html.EditorFor(model => model.Price)
 
-  <input type="submit" value="Save" />
+  <input type="submit" class="btn btn-light" value="Save" />
 }
-<p>@Html.ActionLink("See All Treats", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>

@@ -22,10 +22,7 @@
 @foreach(Treat treat in Model.Treats)
 {
   <ul>
-    <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>
+    <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId }) || @Html.DisplayFor(model => treat.Price)</li>
   </ul>
 }
-
-<button class="btn-warning">@Html.ActionLink("See All Flavors", "Index", "Flavors")</button>
-<button class="btn-warning">@Html.ActionLink("See All Treats", "Index", "Treats")</button>
-<button class="btn-warning">@Html.ActionLink("Create an Account", "Index", "Account")</button>
+<button class="btn-dark">@Html.ActionLink("Create an Account", "Index", "Account")</button>

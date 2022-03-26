@@ -9,7 +9,5 @@
 @Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.TreatName)
 @using (Html.BeginForm())
 {
-  <input type="submit" value="Delete" />
+  <input type="submit" class="btn btn-light" value="Delete" />
 }
-@Html.ActionLink("See All Treats", "Index")
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
